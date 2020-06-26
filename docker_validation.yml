@@ -1,0 +1,10 @@
+--- 
+- name: Validation
+  hosts: production
+  tasks:
+  - name: validation docker container
+    uri:
+      url: http://192.168.56.107:80
+      return_content: yes
+    register: this
+    failed_when: "'The Web Server is Running' not in this.content"

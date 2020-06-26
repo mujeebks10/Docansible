@@ -1,0 +1,10 @@
+- name: Creating web image
+  hosts: production
+  tasks:
+  - name: Building image
+    docker_image:
+      build: 
+        path: /root/ansible/docker
+      name: webserver
+      tag: v1
+      source: build

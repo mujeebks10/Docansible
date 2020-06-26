@@ -1,0 +1,12 @@
+- name: Creting Container
+  hosts: production
+  tasks:
+  - name: Creating Web Container
+    docker_container:
+      name: myServer
+      image: webserver:v1
+      state: started
+      ports:
+      - "80:80"
+      tty: true
+      detach: true
